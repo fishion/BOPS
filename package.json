@@ -1,0 +1,20 @@
+{
+  "name": "bops",
+  "version": "1.0.0",
+  "description": "Brightening Our Public Spaces",
+  "author": "`Maytree House Studios",
+  "license": "ISC",
+  "main": "bin/build.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fishion/BOPS.git"
+  },
+  "devDependencies": {
+    "handlebarsextended": "github:fishion/HandlebarsExtended",
+    "server": "^1.0.33"
+  },
+  "scripts": {
+    "build": "./bin/build.js",
+    "serve": "serve docs"
+  }
+}
