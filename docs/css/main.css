@@ -1,0 +1,58 @@
+/* Variables */
+/*
+  Media query breakpoints
+  768px   : phone <-> tablet              : content view changes
+  1024px : tablet <-> small desktop       : medium sized logo, menu popout not full width
+  1280px : small desktop <-> full desktop : side menu
+*/
+:root {
+  --sidenav-width: 320px;
+  --h2-colour: rgb(27,27,27);
+  --text-colour: rgb(94,94,94);
+  --border-colour: rgb(244,244,244);
+  --highlight-colour: #C25623;
+}
+
+/*****************
+ *  Basic styles
+ */
+
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
+/*******************
+*  Page structure
+*/
+
+header {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+header img {
+  height: 300px;
+}
+
+main section {
+  margin: 0;
+}
+main > section:first-of-type {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center; 
+
+  font-size: 6em;
+  color: white;
+  text-align: center;
+  line-height: .95em;
+}
+main > section:first-of-type p {
+  margin: 0;
+  padding: 320px 100px 100px;
+}
+
+.index main > section:first-of-type {
+  background-image : url('../img/header-home.jpg');
+}

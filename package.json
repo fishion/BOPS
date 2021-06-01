@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "handlebarsextended": "github:fishion/HandlebarsExtended",
-    "server": "^1.0.33"
+    "serve": "^11.3.2"
   },
   "scripts": {
     "build": "./bin/build.js",
