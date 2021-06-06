@@ -6,11 +6,8 @@
   1280px : small desktop <-> full desktop : side menu
 */
 :root {
-  --sidenav-width: 320px;
-  --h2-colour: rgb(27,27,27);
-  --text-colour: rgb(94,94,94);
-  --border-colour: rgb(244,244,244);
-  --highlight-colour: #C25623;
+  --section-hpad: 12em;
+  --section-vpad: 6em;
 }
 
 /*****************
@@ -19,6 +16,32 @@
 
 body {
   font-family: 'Raleway', sans-serif;
+  font-weight: 500;
+}
+h1 {
+  margin: 0;
+  padding: 1em 0;
+  font-size: 2.5em;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+p {
+  margin: 0;
+  padding: 0 0 1em;
+  font-size: 1.5em;
+  letter-spacing: 0.05em;
+  line-height: 1.3em;
+}
+em {
+  font-style: normal;
+  font-weight: 800;
+}
+
+/*******************
+*  Elements
+*/
+p.arrow {
+  font-size: 3em;
 }
 
 /*******************
@@ -34,25 +57,78 @@ header {
 header img {
   height: 300px;
 }
-
-main section {
+main section, footer {
   margin: 0;
-}
-main > section:first-of-type {
+  padding: var(--section-vpad) var(--section-hpad);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center center; 
-
-  font-size: 6em;
+  background-position: center center;
+  text-align: center;
+}
+footer {
+  background-color: rgb(225,156,9);
   color: white;
   text-align: center;
-  line-height: .95em;
-}
-main > section:first-of-type p {
-  margin: 0;
-  padding: 320px 100px 100px;
 }
 
-.index main > section:first-of-type {
+
+/*******************
+*  Sections
+*/
+
+main section.mission {
+  padding: 100px;
   background-image : url('../img/header-home.jpg');
+  padding-top: 320px;
+  font-weight: 300;
+  color: white;
 }
+main section.mission p {
+  font-size: 6em;
+  line-height: .95em;
+}
+
+main section.vision {
+  background-color: rgb(253,189,35);
+}
+
+main section.vision_image {
+  height: 300px;
+  background-image : url('../img/vision.jpg');
+  background-attachment: fixed;
+}
+
+main section.approach {
+  background-color: rgb(28,214,170);
+}
+
+main section.projects {
+  padding-top: 15em;
+  padding-bottom: 14em;
+  background-image : url('../img/projects-bench.jpg');
+  color: white;
+}
+main section.projects h1,
+main section.projects p {
+  padding: 0;
+  text-transform: uppercase;
+}
+
+main section.team {
+  background-color: rgb(251,0,162);
+  color: white;
+}
+main section.team img {
+  width: calc(100% + 2 * var(--section-hpad));
+  margin: 0 calc(-1 * var(--section-hpad));
+}
+main section.team div:nth-of-type(2) {
+  background-color: rgb(201,0,112);
+  margin : calc(-1 * var(--section-vpad)) calc(-1 * var(--section-hpad));
+  padding: calc(2 * var(--section-vpad)) var(--section-hpad) var(--section-vpad)
+}
+
+main section.contact {
+  background-color: rgb(253,189,35);
+}
+

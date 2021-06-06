@@ -29,20 +29,29 @@
   <link rel="shortcut icon" type="image/jpg" href="img/favicon.jpg"/>
 
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;500;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
 </head>
 
-<body class="{{pagename.name}}">
+<body>
 
   <header>
-    <img src="img/logo.png" alt="BOPS logo">
+    <img src="/img/logo.png" alt="BOPS logo">
   </header>
 
   <main>{{{content}}}</main>
 
+  <footer>
+    <p>WEBSITE DESIGN <em>ASPACEFORSOMETHING</em> + BUILD <em>MAYTREEHOUSESTUDIOS</em></p>
+    <p>BOPS, BRIGHTENING OUR PUBLIC SPACES 2021</p>
+  </footer>
+
+  <script>
+    const c = document.getElementsByTagName('footer')[0].getElementsByTagName('p')[1];
+    c.innerHTML = c.innerHTML.replace(2021,(new Date).getFullYear())
+  </script>
 </body>
 
 </html>
