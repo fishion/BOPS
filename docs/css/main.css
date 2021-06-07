@@ -8,6 +8,11 @@
 :root {
   --section-hpad: 12em;
   --section-vpad: 6em;
+  --yellow-bright: rgb(254,199,46);
+  --yellow-dull: rgb(232,171,0);
+  --turquoise: rgb(0,219,185);
+  --pink-bright: rgb(255,0,177);
+  --pink-dull: rgb(186,0,129);
 }
 
 /*****************
@@ -57,7 +62,7 @@ header {
 header img {
   height: 300px;
 }
-main section, footer {
+main section {
   margin: 0;
   padding: var(--section-vpad) var(--section-hpad);
   background-repeat: no-repeat;
@@ -66,9 +71,15 @@ main section, footer {
   text-align: center;
 }
 footer {
-  background-color: rgb(225,156,9);
+  margin: 0;
+  padding: calc(var(--section-vpad)/2) var(--section-hpad);
+  background-color: var(--yellow-dull);
+  text-transform: uppercase;
   color: white;
   text-align: center;
+}
+footer p {
+  padding-bottom: 0;
 }
 
 
@@ -89,7 +100,7 @@ main section.mission p {
 }
 
 main section.vision {
-  background-color: rgb(253,189,35);
+  background-color: var(--yellow-bright);
 }
 
 main section.vision_image {
@@ -99,7 +110,7 @@ main section.vision_image {
 }
 
 main section.approach {
-  background-color: rgb(28,214,170);
+  background-color: var(--turquoise);
 }
 
 main section.projects {
@@ -115,7 +126,7 @@ main section.projects p {
 }
 
 main section.team {
-  background-color: rgb(251,0,162);
+  background-color: var(--pink-bright);
   color: white;
 }
 main section.team img {
@@ -123,12 +134,29 @@ main section.team img {
   margin: 0 calc(-1 * var(--section-hpad));
 }
 main section.team div:nth-of-type(2) {
-  background-color: rgb(201,0,112);
+  background-color: var(--pink-dull);
   margin : calc(-1 * var(--section-vpad)) calc(-1 * var(--section-hpad));
   padding: calc(2 * var(--section-vpad)) var(--section-hpad) var(--section-vpad)
 }
 
 main section.contact {
-  background-color: rgb(253,189,35);
+  background-color: var(--yellow-bright);
 }
-
+main section.contact h1 {
+  padding:0;
+}
+main section.contact p {
+  padding: .7em 0 1.3em;
+  font-size: 2.5em;
+  text-transform: uppercase;
+}
+main section.contact a.fab {
+  width: 1em;
+  margin: .2em;
+  padding: .3em;
+  border-radius: 3em;
+  font-size: 2em;
+  text-decoration: none;
+  color: var(--yellow-bright);
+  background: white;
+}
