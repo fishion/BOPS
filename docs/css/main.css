@@ -16,6 +16,7 @@
   --blue: rgb(31,174,229);
   --grey: rgb(87,87,87);
   --green: rgb(65,173,115);
+  --green-dark: rgb(50,129,86);
 }
 
 /*****************
@@ -29,7 +30,7 @@ body {
 }
 h1 {
   margin: 0;
-  padding: 1em 0;
+  padding: 0 0 1em;
   font-size: 2.5em;
   text-transform: uppercase;
   font-weight: 800;
@@ -59,6 +60,41 @@ a:hover {
 .arrow {
   padding-top: .5em;
   font-size: 2em;
+}
+
+ul.picture-list,
+ol.picture-list {
+  list-style: none;
+  display: flex;
+  flex-flow: row nowrap;
+  margin: 0;
+  padding: 0;
+}
+ul.picture-list li,
+ol.picture-list li  {
+  flex: 1 1 0;
+  padding: 2em;
+  font-size: 1.5em;
+  line-height: 1.5em;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+}
+ol.picture-list li.arrow {
+  position: relative;
+  width: 0;
+  flex: 0 0 0;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  overflow: visible;
+}
+ol.picture-list li.arrow img {
+  position: absolute;
+  width: 12vw !important;
+  z-index: 100;
+  top: 0;
+  left: 50%;
+  transform: translate(-50% );
 }
 
 /*******************
@@ -214,13 +250,48 @@ main section.locations {
 }
 
 main section.process {
+  padding-left: 2em;
+  padding-right: 2em;
   background-color: var(--green);
   color: white;
 }
+main section.process .picture-list li {
+  font-size: 1em;
+  padding: 1em;
+}
+main section.process .picture-list li.arrow {
+  width: 0;
+}
+main section.process .picture-list img,
+main section.process .picture-list div {
+  margin-bottom: 10px;
+}
+main section.process .picture-list img {
+  width: 100%;
+  vertical-align: text-bottom;
+}
+main section.process .picture-list div {
+  background-color: var(--green-dark);
+  text-transform: uppercase;
+  font-size: 3em;
+  font-weight: 500;
+  padding-top: 90%;
+  position: relative;
+}
+main section.process .picture-list div span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
 
 main section.theart {
   background-color: var(--grey);
   color: white;
+}
+main section.theart .picture-list li {
+  background-image: url(../img/scribble-grey.png);
 }
 
 main section.theart-image {
@@ -230,8 +301,13 @@ main section.theart-image {
 }
 
 main section.makeithappen {
+  padding-left: 2em;
+  padding-right: 2em;
   background-color: var(--pink-bright);
   color: white;
+}
+main section.makeithappen .picture-list li {
+  background-image: url(../img/scribble-pink.png);
 }
 
 main section.contact.benchproject {
