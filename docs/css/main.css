@@ -13,6 +13,9 @@
   --turquoise: rgb(0,219,185);
   --pink-bright: rgb(255,0,177);
   --pink-dull: rgb(186,0,129);
+  --blue: rgb(31,174,229);
+  --grey: rgb(87,87,87);
+  --green: rgb(65,173,115);
 }
 
 /*****************
@@ -22,6 +25,7 @@
 body {
   font-family: 'Raleway', sans-serif;
   font-weight: 500;
+  color: black;
 }
 h1 {
   margin: 0;
@@ -41,12 +45,20 @@ em {
   font-style: normal;
   font-weight: 800;
 }
+a {
+  color: white;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
 
 /*******************
 *  Elements
 */
-p.arrow {
-  font-size: 3em;
+.arrow {
+  padding-top: .5em;
+  font-size: 2em;
 }
 
 /*******************
@@ -54,6 +66,7 @@ p.arrow {
 */
 
 header {
+  z-index:100;
   position: absolute;
   width: 100%;
   top: 0;
@@ -63,6 +76,8 @@ header img {
   height: 300px;
 }
 main section {
+  position: relative;
+  clear: both;
   margin: 0;
   padding: var(--section-vpad) var(--section-hpad);
   background-repeat: no-repeat;
@@ -71,6 +86,7 @@ main section {
   text-align: center;
 }
 footer {
+  clear: both;
   margin: 0;
   padding: calc(var(--section-vpad)/2) var(--section-hpad);
   background-color: var(--yellow-dull);
@@ -88,9 +104,8 @@ footer p {
 */
 
 main section.mission {
-  padding: 100px;
+  padding: 320px 100px 100px;
   background-image : url('../img/header-home.jpg');
-  padding-top: 320px;
   font-weight: 300;
   color: white;
 }
@@ -103,7 +118,7 @@ main section.vision {
   background-color: var(--yellow-bright);
 }
 
-main section.vision_image {
+main section.vision-image {
   height: 300px;
   background-image : url('../img/vision.jpg');
   background-attachment: fixed;
@@ -114,8 +129,7 @@ main section.approach {
 }
 
 main section.projects {
-  padding-top: 15em;
-  padding-bottom: 14em;
+  padding: 15em 5em 14em;
   background-image : url('../img/projects-bench.jpg');
   color: white;
 }
@@ -156,7 +170,73 @@ main section.contact a.fab {
   padding: .3em;
   border-radius: 3em;
   font-size: 2em;
-  text-decoration: none;
   color: var(--yellow-bright);
   background: white;
+}
+
+main section.project-intro {
+  background-color: var(--blue);
+  color: white;
+}
+main section.project-intro p {  
+  font-size: 3.5em;
+  font-weight: 300;
+  letter-spacing: -0.005em;
+  line-height: 120%;
+}
+
+main section.bench-image {
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+}
+main section.bench-image img.bench {
+  width: 50%;
+  display: inline-block;
+}
+main section.bench-image img.bench.before {
+  float: left;
+}
+main section.bench-image img.bench-arrow {
+  position: absolute;
+  width: 25%;
+  left: 50%; top: 50%;
+  transform: translate(-50%,-50%);
+}
+
+main section.impact {
+  background-color: var(--yellow-bright);
+}
+
+main section.locations {
+  background-color: white;
+  color: var(--grey)
+}
+
+main section.process {
+  background-color: var(--green);
+  color: white;
+}
+
+main section.theart {
+  background-color: var(--grey);
+  color: white;
+}
+
+main section.theart-image {
+  height: 300px;
+  background-image : url('../img/artists.png  ');
+  background-attachment: fixed;
+}
+
+main section.makeithappen {
+  background-color: var(--pink-bright);
+  color: white;
+}
+
+main section.contact.benchproject {
+  color: white;
+  padding: 12em 0 8em;
+  background-image : url('../img/orange-door.jpg');
+  background-position: top;
 }
