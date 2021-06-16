@@ -167,6 +167,9 @@ footer {
 footer p {
   padding-bottom: 0;
 }
+footer a {
+  font-weight: 800;
+}
 
 /*******************
 *  Sections
