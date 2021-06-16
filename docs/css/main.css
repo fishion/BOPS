@@ -140,7 +140,7 @@ header {
   left: 0;
 }
 header img {
-  height: 300px;
+  height: 250px;
 }
 
 main section {
@@ -159,6 +159,7 @@ footer {
   margin: 0;
   padding: calc(var(--section-vpad)/2) var(--section-hpad);
   background-color: var(--yellow-dull);
+  font-size: 0.7em;
   text-transform: uppercase;
   color: white;
   text-align: center;
