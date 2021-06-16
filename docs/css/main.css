@@ -1,10 +1,10 @@
 /* Variables */
 /*
   Media query breakpoints
-  768px   : phone <-> tablet              : content view changes
-  1024px : tablet <-> small desktop       : medium sized logo, menu popout not full width
-  1280px : small desktop <-> full desktop : side menu
 */
+/* phone <-> tablet */
+/* tablet <-> small desktop */
+/* small desktop <-> full desktop */
 :root {
   --section-hpad: 12em;
   --section-vpad: 6em;
@@ -26,6 +26,11 @@ body {
   font-family: "Raleway", sans-serif;
   font-weight: 500;
   color: black;
+}
+@media (max-width: 1024px) {
+  body {
+    font-size: 0.5em;
+  }
 }
 
 h1 {
@@ -140,7 +145,17 @@ header {
   left: 0;
 }
 header img {
-  height: 250px;
+  height: 100px;
+}
+@media (min-width: 768px) {
+  header img {
+    height: 150px;
+  }
+}
+@media (min-width: 1024px) {
+  header img {
+    height: 250px;
+  }
 }
 
 main section {
@@ -179,10 +194,20 @@ main {
   /* Project page */
 }
 main section.mission {
-  padding: 320px 100px 100px;
+  padding: 150px 100px 50px;
   background-image: url("../img/header-home.jpg");
   font-weight: 300;
   color: white;
+}
+@media (min-width: 768px) {
+  main section.mission {
+    padding: 200px 100px 75px;
+  }
+}
+@media (min-width: 1024px) {
+  main section.mission {
+    padding: 320px 100px 100px;
+  }
 }
 main section.mission p {
   font-size: 6em;

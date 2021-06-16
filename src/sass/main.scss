@@ -1,10 +1,11 @@
 /* Variables */
 /*
   Media query breakpoints
-  768px   : phone <-> tablet              : content view changes
-  1024px : tablet <-> small desktop       : medium sized logo, menu popout not full width
-  1280px : small desktop <-> full desktop : side menu
 */
+$breakpoint-tablet: 768px; /* phone <-> tablet */
+$breakpoint-small: 1024px; /* tablet <-> small desktop */
+$breakpoint-full: 1280px;  /* small desktop <-> full desktop */
+
 :root {
   --section-hpad: 12em;
   --section-vpad: 6em;
@@ -27,6 +28,9 @@ body {
   font-family: 'Raleway', sans-serif;
   font-weight: 500;
   color: black;
+  @media (max-width: $breakpoint-small) {
+    font-size: .5em;
+  }
 }
 h1 {
   margin: 0;
@@ -139,7 +143,13 @@ header {
   top: 0;
   left: 0;
   img {
-    height: 250px;
+    height: 100px;
+    @media (min-width: $breakpoint-tablet) {
+      height: 150px;
+    }
+    @media (min-width: $breakpoint-small) {
+      height: 250px;
+    }
   }
 }
 
@@ -180,10 +190,16 @@ main {
   
   /* Home page */
   section.mission {
-    padding: 320px 100px 100px;
+    padding: 150px 100px 50px;
     background-image : url('../img/header-home.jpg');
     font-weight: 300;
     color: white;
+    @media (min-width: $breakpoint-tablet) {
+      padding: 200px 100px 75px;
+    }
+    @media (min-width: $breakpoint-small) {
+      padding: 320px 100px 100px;
+    }
     p {
       font-size: 6em;
       line-height: .95em;
