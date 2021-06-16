@@ -11,6 +11,7 @@
   },
   "devDependencies": {
     "handlebarsextended": "github:fishion/HandlebarsExtended",
+    "sass": "^1.35.1",
     "serve": "^11.3.2"
   },
   "scripts": {

@@ -22,12 +22,12 @@
 /*****************
  *  Basic styles
  */
+
 body {
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: 500;
   color: black;
 }
-
 h1 {
   margin: 0;
   padding: 0 0 1em;
@@ -35,7 +35,6 @@ h1 {
   text-transform: uppercase;
   font-weight: 800;
 }
-
 p {
   margin: 0;
   padding: 0 0 1em;
@@ -43,17 +42,14 @@ p {
   letter-spacing: 0.05em;
   line-height: 1.3em;
 }
-
 em {
   font-style: normal;
   font-weight: 800;
 }
-
 a {
   color: white;
   text-decoration: none;
 }
-
 a:hover {
   text-decoration: underline;
 }
@@ -62,7 +58,7 @@ a:hover {
 *  Elements
 */
 .arrow {
-  padding-top: 0.5em;
+  padding-top: .5em;
   font-size: 2em;
 }
 
@@ -73,8 +69,7 @@ a:hover {
   margin: 0;
   padding: 0;
 }
-
-.scribble-list li {
+.scribble-list li  {
   flex: 1 1 0;
   padding: 2em;
   font-size: 1.5em;
@@ -90,15 +85,16 @@ a:hover {
   margin: 0;
   padding: 0 4em;
   display: grid;
-  grid: "image1 arrow1 image2 arrow2 image3 arrow3 image4" "text1  arrow1 text2  arrow2 text3  arrow3 text4"/5fr 1fr 5fr 1fr 5fr 1fr 5fr;
+  grid :
+    "image1 arrow1 image2 arrow2 image3 arrow3 image4"
+    "text1  arrow1 text2  arrow2 text3  arrow3 text4"
+    / 5fr 1fr 5fr 1fr 5fr 1fr 5fr;
   grid-auto-flow: column;
   gap: 1em 0;
 }
-
 .picture-list img {
   width: 100%;
 }
-
 .picture-list .textimage {
   background-color: var(--green-dark);
   text-transform: uppercase;
@@ -108,19 +104,15 @@ a:hover {
   align-items: center;
   justify-content: center;
 }
-
 .picture-list .arrow1 {
   grid-area: arrow1;
 }
-
 .picture-list .arrow2 {
   grid-area: arrow2;
 }
-
 .picture-list .arrow3 {
   grid-area: arrow3;
 }
-
 .picture-list .arrow1,
 .picture-list .arrow2,
 .picture-list .arrow3 {
@@ -128,12 +120,10 @@ a:hover {
   z-index: 10;
   width: 300%;
 }
-
 .picture-list .arrow1 img,
 .picture-list .arrow3 img {
   transform: translate(-30%, 100%);
 }
-
 .picture-list .arrow2 img {
   transform: translate(-30%, -20%);
 }
@@ -141,18 +131,17 @@ a:hover {
 /*******************
 *  Page structure
 */
+
 header {
-  z-index: 100;
+  z-index:100;
   position: absolute;
   width: 100%;
   top: 0;
   left: 0;
 }
-
 header img {
   height: 300px;
 }
-
 main section {
   position: relative;
   clear: both;
@@ -163,7 +152,6 @@ main section {
   background-position: center center;
   text-align: center;
 }
-
 footer {
   clear: both;
   margin: 0;
@@ -173,25 +161,26 @@ footer {
   color: white;
   text-align: center;
 }
-
 footer p {
   padding-bottom: 0;
 }
 
+
 /*******************
 *  Sections
 */
+
 /* Home page */
+
 main section.mission {
   padding: 320px 100px 100px;
-  background-image: url("../img/header-home.jpg");
+  background-image : url('../img/header-home.jpg');
   font-weight: 300;
   color: white;
 }
-
 main section.mission p {
   font-size: 6em;
-  line-height: 0.95em;
+  line-height: .95em;
 }
 
 main section.vision {
@@ -200,7 +189,7 @@ main section.vision {
 
 main section.vision-image {
   height: 300px;
-  background-image: url("../img/vision.jpg");
+  background-image : url('../img/vision.jpg');
   background-attachment: fixed;
 }
 
@@ -210,10 +199,9 @@ main section.approach {
 
 main section.projects {
   padding: 15em 5em 14em;
-  background-image: url("../img/projects-bench.jpg");
+  background-image : url('../img/projects-bench.jpg');
   color: white;
 }
-
 main section.projects h1,
 main section.projects p {
   padding: 0;
@@ -224,36 +212,31 @@ main section.team {
   background-color: var(--pink-bright);
   color: white;
 }
-
 main section.team img {
   width: calc(100% + 2 * var(--section-hpad));
   margin: 0 calc(-1 * var(--section-hpad));
 }
-
 main section.team div:nth-of-type(2) {
   background-color: var(--pink-dull);
-  margin: calc(-1 * var(--section-vpad)) calc(-1 * var(--section-hpad));
-  padding: calc(2 * var(--section-vpad)) var(--section-hpad) var(--section-vpad);
+  margin : calc(-1 * var(--section-vpad)) calc(-1 * var(--section-hpad));
+  padding: calc(2 * var(--section-vpad)) var(--section-hpad) var(--section-vpad)
 }
 
 main section.contact {
   background-color: var(--yellow-bright);
 }
-
 main section.contact h1 {
-  padding: 0;
+  padding:0;
 }
-
 main section.contact p {
-  padding: 0.7em 0 1.3em;
+  padding: .7em 0 1.3em;
   font-size: 2.5em;
   text-transform: uppercase;
 }
-
 main section.contact a.fab {
   width: 1em;
-  margin: 0.2em;
-  padding: 0.3em;
+  margin: .2em;
+  padding: .3em;
   border-radius: 3em;
   font-size: 2em;
   color: var(--yellow-bright);
@@ -261,12 +244,12 @@ main section.contact a.fab {
 }
 
 /* Project page */
+
 main section.project-intro {
   background-color: var(--blue);
   color: white;
 }
-
-main section.project-intro p {
+main section.project-intro p {  
   font-size: 3.5em;
   font-weight: 300;
   letter-spacing: -0.005em;
@@ -278,22 +261,18 @@ main section.bench-image {
   padding: 0;
   font-size: 0;
 }
-
 main section.bench-image img.bench {
   width: 50%;
   display: inline-block;
 }
-
 main section.bench-image img.bench.before {
   float: left;
 }
-
 main section.bench-image img.bench-arrow {
   position: absolute;
   width: 25%;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  left: 50%; top: 50%;
+  transform: translate(-50%,-50%);
 }
 
 main section.impact {
@@ -302,7 +281,7 @@ main section.impact {
 
 main section.locations {
   background-color: white;
-  color: var(--grey);
+  color: var(--grey)
 }
 
 main section.process {
@@ -319,7 +298,7 @@ main section.theart {
 
 main section.theart-image {
   height: 300px;
-  background-image: url("../img/artists.png  ");
+  background-image : url('../img/artists.png  ');
   background-attachment: fixed;
 }
 
@@ -329,7 +308,6 @@ main section.makeithappen {
   background-color: var(--pink-bright);
   color: white;
 }
-
 main section.makeithappen .scribble-list li {
   background-image: url(../img/scribble-pink.png);
 }
@@ -337,6 +315,6 @@ main section.makeithappen .scribble-list li {
 main section.contact.benchproject {
   color: white;
   padding: 12em 0 8em;
-  background-image: url("../img/orange-door.jpg");
+  background-image : url('../img/orange-door.jpg');
   background-position: top;
 }
