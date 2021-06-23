@@ -1,4 +1,6 @@
-/* Variables */
+/*****************************************************
+ * Variables
+ *****************************************************/
 /*
   Media query breakpoints
 */
@@ -7,8 +9,28 @@ $breakpoint-small: 1024px; /* tablet <-> small desktop */
 $breakpoint-full: 1280px;  /* small desktop <-> full desktop */
 
 :root {
-  --section-hpad: 12em;
-  --section-vpad: 6em;
+  --section-height: 54rem;
+  --section-hpad: 16rem;
+  --section-vpad: 10rem;
+
+  // text sizes
+  --base-text-size: 10px;
+  --h1-text-size: 3.4rem;
+  --h1-underpadding: 5.5rem;
+  --p-text-size: 2.2rem;
+  --p-underpadding: 3rem;
+
+  // font weights
+  --weight-normal : 300;
+  --weight-bold : 500;
+  --weight-bolder : 800;
+
+  // fonts
+  --base-fonts : 'Raleway', sans-serif;
+
+  // colours
+  --base-text-colour: black;
+  --alt-text-colour: white;
   --yellow-bright: rgb(254,199,46);
   --yellow-dull: rgb(232,171,0);
   --turquoise: rgb(0,219,185);
@@ -20,124 +42,52 @@ $breakpoint-full: 1280px;  /* small desktop <-> full desktop */
   --green-dark: rgb(50,129,86);
 }
 
-/*****************
- *  Basic styles
- */
+/*****************************************************
+ * General Styles
+ *****************************************************/
 
-body {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 500;
-  color: black;
-  @media (max-width: $breakpoint-small) {
-    font-size: .5em;
-  }
+ html, body, div, header, footer, main, section, article, p, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, pre, code, img, blockquote, q, canvas, form, label, fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  vertical-align: top;
+  font-family: var(--base-fonts);
+  font-size: var(--base-text-size);
+  font-weight: var(--weight-normal);
+  color: --base-text-colour;
 }
 h1 {
-  margin: 0;
-  padding: 0 0 1em;
-  font-size: 2.5em;
+  padding: 0 0 var(--h1-underpadding);
+  font-size: var(--h1-text-size);
   text-transform: uppercase;
-  font-weight: 800;
+  font-weight: var(--weight-bolder);
 }
 p {
-  margin: 0;
-  padding: 0 0 1em;
-  font-size: 1.5em;
-  letter-spacing: 0.05em;
-  line-height: 1.3em;
+  padding: 0 0 var(--p-underpadding);
+  font-size: var(--p-text-size);
+  letter-spacing: 0.02rem;
+  line-height: 130%;
+  font-weight: var(--weight-bold);
 }
 em {
   font-style: normal;
-  font-weight: 800;
+  font-weight: var(--weight-bolder);
 }
 a {
-  color: white;
+  color: var(--alt-text-colour);
   text-decoration: none;
 }
 a:hover {
   text-decoration: underline;
 }
 
-/*******************
-*  Elements
-*/
-.arrow {
-  padding-top: .5em;
-  font-size: 2em;
-}
-
-.scribble-list {
-  list-style: none;
-  display: flex;
-  flex-flow: row nowrap;
-  margin: 0;
-  padding: 0;
-  li {
-    flex: 1 1 0;
-    padding: 2em;
-    font-size: 1.5em;
-    line-height: 1.5em;
-    background-image: url(../img/scribble-grey.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center center;
-  }
-}
-
-.picture-list {
-  list-style: none;
-  margin: 0;
-  padding: 0 4em;
-  display: grid;
-  grid :
-    "image1 arrow1 image2 arrow2 image3 arrow3 image4"
-    "text1  arrow1 text2  arrow2 text3  arrow3 text4"
-    / 5fr 1fr 5fr 1fr 5fr 1fr 5fr;
-  grid-auto-flow: column;
-  gap: 1em 0;
-  img {
-    width: 100%;
-  }
-  .textimage {
-    background-color: var(--green-dark);
-    text-transform: uppercase;
-    font-size: 3em;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .arrow1, .arrow2, .arrow3 {
-    overflow: visible;
-    z-index: 10;
-    width: 300%;
-  }
-  .arrow1 {
-    grid-area: arrow1;
-    img {
-      transform: translate(-30%, 100%);
-    }
-  }
-  .arrow2 {
-    grid-area: arrow2;
-    img {
-      transform: translate(-30%, -20%);
-    }
-  }
-  .arrow3 {
-    grid-area: arrow3;
-    img {
-      transform: translate(-30%, 100%);
-    }
-  }
-}
-
-/*******************
-*  Page structure
-*/
+/*****************************************************
+ * Page Structure
+ *****************************************************/
 
 header {
-  z-index:100;
+  z-index:10;
   position: absolute;
   width: 100%;
   top: 0;
@@ -153,34 +103,127 @@ header {
   }
 }
 
-main section {
+// reusable Extend style
+%section-layout {
   position: relative;
+  min-height: var(--section-height);
+  padding: var(--section-vpad) var(--section-hpad) calc(var(--section-vpad)/2);
+}
+
+main > section {
+  @extend %section-layout;
   clear: both;
-  margin: 0;
-  padding: var(--section-vpad) var(--section-hpad);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
   text-align: center;
+
+  &.just-image {
+    position: relative;
+    overflow: hidden;
+    &::before {
+      content: '';
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      position: fixed;
+      background-repeat: no-repeat;
+      background-position: center top;
+      background-size: cover;
+      will-change: transform;
+      z-index: -1;
+    }
+  }
 }
+
 
 footer {
   clear: both;
-  margin: 0;
   padding: calc(var(--section-vpad)/2) var(--section-hpad);
   background-color: var(--yellow-dull);
-  font-size: .7em;
-  text-transform: uppercase;
-  color: white;
-  text-align: center;
+  color: var(--alt-text-colour);
   p {
     padding-bottom: 0;
+    font-size: 1.8rem;
+    text-align: center;
+    text-transform: uppercase;
   }
   a {
-    font-weight: 800;
+    font-weight: var(--weight-bolder);
   }
 } 
 
+/*******************
+*  Helper styles
+*/
+
+.picture-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 6rem;
+  display: grid;
+  grid :
+    "image1 arrow1 image2 arrow2 image3 arrow3 image4"
+    "text1  arrow1 text2  arrow2 text3  arrow3 text4"
+    / 5fr 1fr 5fr 1fr 5fr 1fr 5fr;
+  grid-auto-flow: column;
+  gap: 2rem 0;
+  img {
+    width: 100%;
+  }
+  p {
+    padding: 0 1rem;
+    font-size: 1.7rem;
+    text-align: left;
+    font-weight: var(--weight-normal);
+  }
+  .textimage {
+    background-color: var(--green-dark);
+    text-transform: uppercase;
+    font-size: 5rem;
+    font-weight: var(--weight-bold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  @mixin arrow($grid-area, $pos) {
+    overflow: visible;
+    z-index: 10;
+    width: 300%;
+    grid-area : $grid-area;
+    img {
+      transform: translate(-30%, $pos);
+    }
+  }
+  .arrow1 {
+    @include arrow(arrow1, 100%);
+  }
+  .arrow2 {
+    @include arrow(arrow2, -20%);
+  }
+  .arrow3 {
+    @include arrow(arrow3, 100%);
+  }
+}
+
+.scribble-list {
+  list-style: none;
+  display: flex;
+  flex-flow: row nowrap;
+  margin: 0;
+  padding: 0;
+  li {
+    flex: 1 1 0;
+    padding: 5rem;
+    font-size: 2.3rem;
+    line-height: 3rem;
+    background-image: url(../img/scribble-grey.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+  }
+}
 
 /*******************
 *  Sections
@@ -190,19 +233,21 @@ main {
   
   /* Home page */
   section.mission {
-    padding: 150px 100px 50px;
+    height: auto;
+    padding: 120px 100px 50px;
     background-image : url('../img/header-home.jpg');
-    font-weight: 300;
-    color: white;
     @media (min-width: $breakpoint-tablet) {
-      padding: 200px 100px 75px;
+      padding: 170px 100px 50px;
     }
     @media (min-width: $breakpoint-small) {
-      padding: 320px 100px 100px;
+      padding: 270px 100px 100px;
     }
     p {
-      font-size: 6em;
-      line-height: .95em;
+      padding:0;
+      color: var(--alt-text-colour);
+      font-size: 7.5rem;
+      letter-spacing: 0.25rem;
+      line-height: 105%;
     }
   }
 
@@ -210,22 +255,8 @@ main {
     background-color: var(--yellow-bright);
   }
 
-  section.vision-image {
-    height: 300px;
-    position: relative;
-    overflow: hidden;
-    &::before {
-      content: '';
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      background : url('../img/vision.jpg') no-repeat center top;
-      background-size: cover;
-      will-change: transform;
-      z-index: -1;
-    }
+  section.vision-image::before {
+    background-image : url('../img/vision.jpg')
   }
 
   section.approach {
@@ -233,53 +264,73 @@ main {
   }
 
   section.projects {
-    padding: 15em 5em 14em;
+    padding-top: 22rem;
     background-image : url('../img/projects-bench.jpg');
-    color: white;
     h1, p {
       padding: 0;
+      color: var(--alt-text-colour);
       text-transform: uppercase;
+    }
+    .arrow {
+      padding-top: 2rem;
+      font-size: 3rem;
     }
   }
 
   section.team {
-    background-color: var(--pink-bright);
-    color: white;
+    padding: 0;
+    color: var(--alt-text-colour);
+
+    %outside-sections {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      z-index: 10;
+    }
+
+    h1 {
+      @extend %outside-sections;
+      top: var(--section-vpad);
+    }
+    div {
+      @extend %section-layout;
+      padding-top: calc(var(--section-vpad) + var(--h1-text-size) + var(--h1-underpadding));
+      background-color: var(--pink-bright);
+    }
     img {
-      width: calc(100% + 2 * var(--section-hpad));
-      margin: 0 calc(-1 * var(--section-hpad));
+      @extend %outside-sections;
+      transform: translate(0, -50%);
     }
     div:nth-of-type(2) {
       background-color: var(--pink-dull);
-      margin : calc(-1 * var(--section-vpad)) calc(-1 * var(--section-hpad));
-      padding: calc(2 * var(--section-vpad)) var(--section-hpad) var(--section-vpad)
     }
   }
 
   section.contact {
     background-color: var(--yellow-bright);
+    padding-top: calc(1.5 * var(--section-vpad));
     h1 {
       padding:0;
     }
     p {
-      padding: .7em 0 1.3em;
-      font-size: 2.5em;
+      padding: 3rem 0 5rem;
+      font-size: 3rem;
       text-transform: uppercase;
     }
     a {
       color: black;
-    }
-    a.fab {
-      width: 1em;
-      margin: .2em;
-      padding: .3em;
-      border-radius: 3em;
-      font-size: 2em;
-      color: var(--yellow-bright);
-      background: white;
-    }
-    a.fab:hover {
-      text-decoration: none;
+      &.fab {
+        width: 3rem;
+        margin: .2rem;
+        padding: 1rem;
+        border-radius: 3rem;
+        font-size: 3rem;
+        color: var(--yellow-bright);
+        background: white;
+        &:hover {
+          text-decoration: none;
+        }
+      }
     }
   }
 
@@ -288,10 +339,10 @@ main {
     background-color: var(--blue);
     color: white;
     p {  
-      font-size: 3.5em;
+      font-size: 4.8rem;
       font-weight: 300;
-      letter-spacing: -0.005em;
-      line-height: 120%;
+      letter-spacing: 0.05rem;
+      line-height: 110%;
     }
   }
 
@@ -299,12 +350,13 @@ main {
     margin: 0;
     padding: 0;
     font-size: 0;
+    min-height: 0;
     img.bench {
       width: 50%;
       display: inline-block;
-    }
-    img.bench.before {
-      float: left;
+      &.before {
+        float: left;
+      }
     }
     img.bench-arrow {
       position: absolute;
@@ -324,38 +376,24 @@ main {
   }
 
   section.process {
-    padding-left: 2em;
-    padding-right: 2em;
+    padding: calc(var(--section-vpad)/2) 2rem;
     background-color: var(--green);
     color: white;
   }
 
   section.theart {
+    padding-top: calc(var(--section-vpad)/2);
     background-color: var(--grey);
     color: white;
   }
 
-  section.theart-image {
-    height: 300px;
-    position: relative;
-    overflow: hidden;
-    &::before {
-      content: '';
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      background : url('../img/artists.png') no-repeat center top;
-      background-size: cover;
-      will-change: transform;
-      z-index: -1;
-    }
+  section.theart-image::before {
+    background-image : url('../img/artists.png')
   }
 
   section.makeithappen {
-    padding-left: 2em;
-    padding-right: 2em;
+    padding-left: 2rem;
+    padding-right: 2rem;
     background-color: var(--pink-bright);
     color: white;
     .scribble-list li {
@@ -365,14 +403,13 @@ main {
 
   section.contact.benchproject {
     color: white;
-    padding: 12em 0 8em;
     background-image : url('../img/orange-door.jpg');
     background-position: top;
     a {
       color: white;
-    }
-    a.fab {
-      color: var(--yellow-dull);
+      &.fab {
+        color: var(--yellow-dull);
+      }
     }
   }
 }
