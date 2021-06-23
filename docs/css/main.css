@@ -8,10 +8,12 @@
 /* tablet <-> small desktop */
 /* small desktop <-> full desktop */
 :root {
+  --base-text-size: 6px;
+  --strapline-text-size: 6rem;
+  --benchart-strapline-text-size: 4rem;
   --section-height: 54rem;
-  --section-hpad: 16rem;
+  --section-hpad: 7rem;
   --section-vpad: 10rem;
-  --base-text-size: 10px;
   --h1-text-size: 3.4rem;
   --h1-underpadding: 5.5rem;
   --p-text-size: 2.2rem;
@@ -31,6 +33,18 @@
   --grey: rgb(87,87,87);
   --green: rgb(65,173,115);
   --green-dark: rgb(50,129,86);
+}
+@media (min-width: 768px) {
+  :root {
+    --base-text-size: 10px;
+    --strapline-text-size: 7.5rem;
+    --benchart-strapline-text-size: 4.8rem;
+  }
+}
+@media (min-width: 768px) {
+  :root {
+    --section-hpad: 16rem;
+  }
 }
 
 /*****************************************************
@@ -88,17 +102,7 @@ header {
   left: 0;
 }
 header img {
-  height: 100px;
-}
-@media (min-width: 768px) {
-  header img {
-    height: 150px;
-  }
-}
-@media (min-width: 1024px) {
-  header img {
-    height: 250px;
-  }
+  height: 25rem;
 }
 
 main section.team div, main > section {
@@ -233,23 +237,13 @@ main {
 }
 main section.mission {
   height: auto;
-  padding: 120px 100px 50px;
+  padding: 27rem 10rem 10rem;
   background-image: url("../img/header-home.jpg");
-}
-@media (min-width: 768px) {
-  main section.mission {
-    padding: 170px 100px 50px;
-  }
-}
-@media (min-width: 1024px) {
-  main section.mission {
-    padding: 270px 100px 100px;
-  }
 }
 main section.mission p {
   padding: 0;
   color: var(--alt-text-colour);
-  font-size: 7.5rem;
+  font-size: var(--strapline-text-size);
   letter-spacing: 0.25rem;
   line-height: 105%;
 }
@@ -263,7 +257,7 @@ main section.approach {
   background-color: var(--turquoise);
 }
 main section.projects {
-  padding-top: 22rem;
+  padding-top: 29rem;
   background-image: url("../img/projects-bench.jpg");
 }
 main section.projects h1, main section.projects p {
@@ -330,8 +324,8 @@ main section.project-intro {
   color: white;
 }
 main section.project-intro p {
-  font-size: 4.8rem;
-  font-weight: 300;
+  font-size: var(--benchart-strapline-text-size);
+  font-weight: var(--weight-normal);
   letter-spacing: 0.05rem;
   line-height: 110%;
 }

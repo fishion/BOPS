@@ -9,12 +9,26 @@ $breakpoint-small: 1024px; /* tablet <-> small desktop */
 $breakpoint-full: 1280px;  /* small desktop <-> full desktop */
 
 :root {
-  --section-height: 54rem;
-  --section-hpad: 16rem;
-  --section-vpad: 10rem;
-
   // text sizes
-  --base-text-size: 10px;
+  --base-text-size: 6px;
+  --strapline-text-size: 6rem;
+  --benchart-strapline-text-size: 4rem;
+
+  @media (min-width: $breakpoint-tablet) {
+    --base-text-size: 10px;
+    --strapline-text-size: 7.5rem;
+    --benchart-strapline-text-size: 4.8rem;
+  }
+  
+  // layouts
+  --section-height: 54rem;
+  --section-hpad: 7rem;
+  --section-vpad: 10rem;
+  @media (min-width: $breakpoint-tablet) {
+    --section-hpad: 16rem;
+  }
+
+  
   --h1-text-size: 3.4rem;
   --h1-underpadding: 5.5rem;
   --p-text-size: 2.2rem;
@@ -93,13 +107,7 @@ header {
   top: 0;
   left: 0;
   img {
-    height: 100px;
-    @media (min-width: $breakpoint-tablet) {
-      height: 150px;
-    }
-    @media (min-width: $breakpoint-small) {
-      height: 250px;
-    }
+    height: 25rem;
   }
 }
 
@@ -234,18 +242,12 @@ main {
   /* Home page */
   section.mission {
     height: auto;
-    padding: 120px 100px 50px;
+    padding: 27rem 10rem 10rem;
     background-image : url('../img/header-home.jpg');
-    @media (min-width: $breakpoint-tablet) {
-      padding: 170px 100px 50px;
-    }
-    @media (min-width: $breakpoint-small) {
-      padding: 270px 100px 100px;
-    }
     p {
       padding:0;
       color: var(--alt-text-colour);
-      font-size: 7.5rem;
+      font-size: var(--strapline-text-size);
       letter-spacing: 0.25rem;
       line-height: 105%;
     }
@@ -264,7 +266,7 @@ main {
   }
 
   section.projects {
-    padding-top: 22rem;
+    padding-top: 29rem;
     background-image : url('../img/projects-bench.jpg');
     h1, p {
       padding: 0;
@@ -339,8 +341,8 @@ main {
     background-color: var(--blue);
     color: white;
     p {  
-      font-size: 4.8rem;
-      font-weight: 300;
+      font-size: var(--benchart-strapline-text-size);
+      font-weight: var(--weight-normal);
       letter-spacing: 0.05rem;
       line-height: 110%;
     }
