@@ -15,9 +15,12 @@ $breakpoint-full: 1280px;  /* small desktop <-> full desktop */
   --benchart-strapline-text-size: 4rem;
 
   @media (min-width: $breakpoint-tablet) {
-    --base-text-size: 10px;
+    --base-text-size: 8px;
     --strapline-text-size: 7.5rem;
     --benchart-strapline-text-size: 4.8rem;
+  }
+  @media (min-width: $breakpoint-small) {
+    --base-text-size: 10px;
   }
   
   // layouts
@@ -25,6 +28,9 @@ $breakpoint-full: 1280px;  /* small desktop <-> full desktop */
   --section-hpad: 7rem;
   --section-vpad: 10rem;
   @media (min-width: $breakpoint-tablet) {
+    --section-hpad: 10rem;
+  }
+  @media (min-width: $breakpoint-small) {
     --section-hpad: 16rem;
   }
 

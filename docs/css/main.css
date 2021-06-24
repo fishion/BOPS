@@ -36,12 +36,22 @@
 }
 @media (min-width: 768px) {
   :root {
-    --base-text-size: 10px;
+    --base-text-size: 8px;
     --strapline-text-size: 7.5rem;
     --benchart-strapline-text-size: 4.8rem;
   }
 }
+@media (min-width: 1024px) {
+  :root {
+    --base-text-size: 10px;
+  }
+}
 @media (min-width: 768px) {
+  :root {
+    --section-hpad: 10rem;
+  }
+}
+@media (min-width: 1024px) {
   :root {
     --section-hpad: 16rem;
   }
