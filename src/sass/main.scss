@@ -26,11 +26,12 @@ $breakpoint-full: 1280px;  /* small desktop <-> full desktop */
   // layouts
   --section-height: 54rem;
   --section-hpad: 7rem;
-  --section-vpad: 10rem;
+  --section-vpad: 5rem;
   @media (min-width: $breakpoint-tablet) {
     --section-hpad: 10rem;
   }
   @media (min-width: $breakpoint-small) {
+    --section-vpad: 8rem;
     --section-hpad: 16rem;
   }
 
@@ -121,7 +122,11 @@ header {
 %section-layout {
   position: relative;
   min-height: var(--section-height);
-  padding: var(--section-vpad) var(--section-hpad) calc(var(--section-vpad)/2);
+  display:flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items:center;
+  padding: var(--section-vpad) var(--section-hpad)
 }
 
 main > section {
@@ -154,7 +159,7 @@ main > section {
 
 footer {
   clear: both;
-  padding: calc(var(--section-vpad)/2) var(--section-hpad);
+  padding: var(--section-vpad) var(--section-hpad);
   background-color: var(--yellow-dull);
   color: var(--alt-text-colour);
   p {
@@ -292,7 +297,7 @@ main {
   }
 
   section.projects {
-    padding-top: 29rem;
+    padding-top: 19rem;
     background-image : url('../img/projects-bench.jpg');
     h1, p {
       padding: 0;
@@ -306,6 +311,7 @@ main {
   }
 
   section.team {
+    display: block;
     padding: 0;
     color: var(--alt-text-colour);
 
@@ -336,7 +342,6 @@ main {
 
   section.contact {
     background-color: var(--yellow-bright);
-    padding-top: calc(1.5 * var(--section-vpad));
     h1 {
       padding:0;
     }
@@ -375,6 +380,7 @@ main {
   }
 
   section.bench-image {
+    display: block;
     margin: 0;
     padding: 0;
     font-size: 0;
@@ -404,13 +410,12 @@ main {
   }
 
   section.process {
-    padding: calc(var(--section-vpad)/2) 2rem;
+    padding: var(--section-vpad) 2rem;
     background-color: var(--green);
     color: white;
   }
 
   section.theart {
-    padding-top: calc(var(--section-vpad)/2);
     background-color: var(--grey);
     color: white;
   }
@@ -420,8 +425,7 @@ main {
   }
 
   section.makeithappen {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding: var(--section-vpad) 2rem;
     background-color: var(--pink-bright);
     color: white;
     .scribble-list li {
