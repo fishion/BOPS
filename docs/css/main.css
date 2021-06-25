@@ -112,8 +112,52 @@ header {
   top: 0;
   left: 0;
 }
-header img {
+header .logo {
   height: 25rem;
+}
+header .hamburger {
+  position: fixed;
+  top: 4rem;
+  right: 5rem;
+  width: 10rem;
+  height: 6rem;
+  fill: var(--alt-text-colour);
+  cursor: pointer;
+  transition: fill 0.5s ease;
+}
+header .hamburger:hover {
+  fill: var(--yellow-bright);
+}
+
+nav {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 0%;
+  background-color: var(--base-text-colour);
+  color: var(--alt-text-colour);
+  opacity: 0%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease;
+}
+nav.open {
+  width: 50%;
+  opacity: 90%;
+}
+nav ul {
+  list-style: none;
+}
+nav ul li {
+  font-size: 3.5rem;
+  font-weight: var(--weight-bold);
+  line-height: 3em;
+  color: var(--alt-text-colour);
+  text-transform: uppercase;
 }
 
 main section.team div, main > section {

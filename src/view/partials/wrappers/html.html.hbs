@@ -41,8 +41,16 @@
 <body>
 
   <header>
-    <a href="/"><img src="img/logo.png" alt="BOPS logo"></a>
+    {{{include "hamburger"}}}
+    <a href="/"><img src="img/logo.png" alt="BOPS logo" class="logo"></a>
   </header>
+
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/projects.html">Projects</a></li>
+    </ul>
+  </nav>
 
   <main>{{{content}}}</main>
 
@@ -54,6 +62,17 @@
   <script>
     const c = document.getElementsByTagName('footer')[0].getElementsByTagName('p')[1];
     c.innerHTML = c.innerHTML.replace(2021,(new Date).getFullYear())
+
+    const opener = document.getElementsByClassName('hamburger')[0];
+    const closer = document.getElementsByClassName('menuX')[0];
+    const popoutMenu = document.getElementsByTagName('nav')[0];
+    opener.addEventListener('click', () => {
+      popoutMenu.classList.add('open')
+    })
+    popoutMenu.addEventListener('click', () => {
+      popoutMenu.classList.remove('open')
+    })
+
   </script>
 </body>
 

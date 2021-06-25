@@ -41,8 +41,22 @@
 <body>
 
   <header>
-    <a href="/"><img src="img/logo.png" alt="BOPS logo"></a>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="1 0 40 24" class="hamburger">
+  <g>
+    <path fill-rule="evenodd" d="M4 8h35V6H4z"></path>
+    <path fill-rule="evenodd" d="M4 13.096h35v-2.001H4z"></path>
+    <path fill-rule="evenodd" d="M4 18.346h35v-2H4z"></path>
+  </g>
+</svg>
+    <a href="/"><img src="img/logo.png" alt="BOPS logo" class="logo"></a>
   </header>
+
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/projects.html">Projects</a></li>
+    </ul>
+  </nav>
 
   <main>  <section class="mission">
     <p>visual arts can inspire, create unity, provide a sense of pride and open up communities</p>
@@ -102,6 +116,17 @@
   <script>
     const c = document.getElementsByTagName('footer')[0].getElementsByTagName('p')[1];
     c.innerHTML = c.innerHTML.replace(2021,(new Date).getFullYear())
+
+    const opener = document.getElementsByClassName('hamburger')[0];
+    const closer = document.getElementsByClassName('menuX')[0];
+    const popoutMenu = document.getElementsByTagName('nav')[0];
+    opener.addEventListener('click', () => {
+      popoutMenu.classList.add('open')
+    })
+    popoutMenu.addEventListener('click', () => {
+      popoutMenu.classList.remove('open')
+    })
+
   </script>
 </body>
 
