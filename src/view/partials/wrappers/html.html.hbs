@@ -46,6 +46,7 @@
   </header>
 
   <nav>
+    {{{include "menuX"}}}
     <ul>
       <li><a href="/">Home</a></li>
       <li><a href="/projects.html">Projects</a></li>
@@ -69,7 +70,7 @@
     opener.addEventListener('click', () => {
       popoutMenu.classList.add('open')
     })
-    popoutMenu.addEventListener('click', () => {
+    closer.addEventListener('click', () => {
       popoutMenu.classList.remove('open')
     })
 
