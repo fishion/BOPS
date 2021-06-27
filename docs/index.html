@@ -36,6 +36,8 @@
 
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
+
+  <script defer src="js/site.js"></script>
 </head>
 
 <body>
@@ -115,22 +117,7 @@
     <p>Website design <a href="http://www.aspaceforsomething.com/" target="_">aspaceforsomething</a> + build <a href="https://www.maytreehousestudios.co.uk" target="_">maytreehousestudios</a></p>
     <p>BOPS, Brightening Our Public Spaces 2021</p>
   </footer>
-
-  <script>
-    const c = document.getElementsByTagName('footer')[0].getElementsByTagName('p')[1];
-    c.innerHTML = c.innerHTML.replace(2021,(new Date).getFullYear())
-
-    const opener = document.getElementsByClassName('hamburger')[0];
-    const closer = document.getElementsByClassName('menuX')[0];
-    const popoutMenu = document.getElementsByTagName('nav')[0];
-    opener.addEventListener('click', () => {
-      popoutMenu.classList.add('open')
-    })
-    closer.addEventListener('click', () => {
-      popoutMenu.classList.remove('open')
-    })
-
-  </script>
+  
 </body>
 
 </html>

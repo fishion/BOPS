@@ -139,7 +139,7 @@ nav {
   bottom: 0;
   right: 0;
   width: 0%;
-  background-color: var(--base-text-colour);
+  background-color: var(--grey);
   color: var(--alt-text-colour);
   opacity: 0%;
   display: flex;
@@ -454,6 +454,14 @@ main section.impact {
 main section.locations {
   background-color: white;
   color: var(--grey);
+}
+main section.map {
+  margin: 0;
+  padding: 0;
+}
+main section.map .map {
+  width: 100%;
+  height: var(--section-height);
 }
 main section.process {
   padding: var(--section-vpad) 2rem;

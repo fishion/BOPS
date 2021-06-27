@@ -142,7 +142,7 @@ nav {
   bottom: 0;
   right: 0;
   width: 0%;
-  background-color: var(--base-text-colour);
+  background-color: var(--grey);
   color: var(--alt-text-colour);
   opacity: 0%;
   display:flex;
@@ -463,6 +463,15 @@ main {
   section.locations {
     background-color: white;
     color: var(--grey)
+  }
+
+  section.map {
+    margin: 0;
+    padding: 0;
+    .map {
+      width: 100%;
+      height: var(--section-height);
+    }
   }
 
   section.process {
