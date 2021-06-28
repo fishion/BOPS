@@ -61,8 +61,10 @@ const map = new Map({
   })
 });
 
-map.on('singleclick', function (e) {
+map.on(['pointermove', 'singleclick'], function (e) {
   const feature = map.getFeaturesAtPixel(e.pixel)[0];
+  document.body.style.cursor = feature ? 'pointer' : '';
+  if (e.type == 'pointermove') return;
   if (feature) {
     feature.get('setPopupContent')()
     popupOverlay.setPosition(feature.getGeometry().getCoordinates());
