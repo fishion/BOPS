@@ -15,11 +15,15 @@ import Point from 'ol/geom/Point';
 // 
 import {Style, Icon} from 'ol/style';
 
-const feature = new Feature({
-  geometry: new Point(fromLonLat([-0.2005,50.8515]))
+const benchesData = require('../data/benches.json');
+const features = benchesData.map(bench => {
+  return new Feature({
+    geometry: new Point(fromLonLat(bench.latlong))
+  })
 })
+
 const vecsource = new VectorSource()
-vecsource.addFeature(feature);
+vecsource.addFeatures(features);
 
 const map = new Map({
   target: 'map',
@@ -31,6 +35,7 @@ const map = new Map({
       source: vecsource,
       style: new Style({
         image: new Icon({
+          scale: 0.25,
           src: '../img/map-marker.png'
         })
       }) 
