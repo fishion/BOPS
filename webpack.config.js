@@ -5,8 +5,8 @@ module.exports = {
     site : './src/js/site.js',
     maps : './src/js/maps.js',
   },
-  //mode: 'development', devtool: false,
-  mode: 'production',
+  mode: 'development', devtool: false,
+  //mode: 'production',
   target: 'node',
   output: {
     filename: '[name].js',

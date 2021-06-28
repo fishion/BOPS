@@ -1,5 +1,5 @@
 import 'ol/ol.css';
-import {Map, View} from 'ol';
+import {Map, View, Overlay} from 'ol';
 // Layers are map layers that can contain things
 import TileLayer from 'ol/layer/Tile';
 import VectorLayer from 'ol/layer/Vector';
@@ -14,16 +14,20 @@ import {fromLonLat} from 'ol/proj';
 import Point from 'ol/geom/Point';
 // 
 import {Style, Icon} from 'ol/style';
-
+// pull benches marker data from json
 const benchesData = require('../data/benches.json');
-const features = benchesData.map(bench => {
-  return new Feature({
-    geometry: new Point(fromLonLat(bench.latlong))
-  })
-})
 
-const vecsource = new VectorSource()
-vecsource.addFeatures(features);
+// add popupcontainer element to source
+document.getElementById('map').insertAdjacentHTML('afterend','<div class="popup-container" id="popup-container"></div>');
+
+const popupContainer = document.getElementById('popup-container')
+const popupOverlay = new Overlay({
+  element: popupContainer,
+  autoPan: true,
+  autoPanAnimation: { duration: 250 },
+  positioning: 'bottom-center',
+  offset: [0, -20]
+});
 
 const map = new Map({
   target: 'map',
@@ -32,7 +36,16 @@ const map = new Map({
       source: new OSMSource()
     }),
     new VectorLayer({
-      source: vecsource,
+      source: new VectorSource({
+        features: benchesData.benches.map(bench => {
+          return new Feature({
+            geometry: new Point(fromLonLat(bench.latlong)),
+            setPopupContent: () => {
+              popupContainer.innerHTML = bench.name;
+            } 
+          })
+        })
+      }),
       style: new Style({
         image: new Icon({
           scale: 0.25,
@@ -41,8 +54,19 @@ const map = new Map({
       }) 
     })
   ],
+  overlays : [popupOverlay],
   view: new View({
-    center: fromLonLat([-0.195,50.842487]),
-    zoom: 13
+    center: fromLonLat(benchesData.view.center),
+    zoom: benchesData.view.zoom
   })
+});
+
+map.on('singleclick', function (e) {
+  const feature = map.getFeaturesAtPixel(e.pixel)[0];
+  if (feature) {
+    feature.get('setPopupContent')()
+    popupOverlay.setPosition(feature.getGeometry().getCoordinates());
+  } else {
+    popupOverlay.setPosition(undefined);
+  }
 });

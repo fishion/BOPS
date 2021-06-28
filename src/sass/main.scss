@@ -40,6 +40,7 @@ $breakpoint-full: 1280px;  /* small desktop <-> full desktop */
   --h1-underpadding: 5.5rem;
   --p-text-size: 2.2rem;
   --p-underpadding: 3rem;
+  --map-feature-text-size: 1.5rem;
 
   // font weights
   --weight-normal : 300;
@@ -58,6 +59,7 @@ $breakpoint-full: 1280px;  /* small desktop <-> full desktop */
   --pink-bright: rgb(255,0,177);
   --pink-dull: rgb(186,0,129);
   --blue: rgb(31,174,229);
+  --dark-blue: #003c88;
   --grey: rgb(87,87,87);
   --green: rgb(65,173,115);
   --green-dark: rgb(50,129,86);
@@ -468,9 +470,38 @@ main {
   section.map {
     margin: 0;
     padding: 0;
+    background-color: white;
     .map {
       width: 100%;
       height: var(--section-height);
+    }
+    .popup-container {
+      position: relative;
+      background: white;
+      border: 2px solid var(--dark-blue);;
+      border-radius: 5px;
+      padding: 5px;
+      font-size: var(--map-feature-text-size);
+      &:after, &:before {
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        pointer-events: none;
+      }
+      &:before {
+        border-top-color: var(--dark-blue);
+        border-width: 12px;
+        margin-left: -12px;
+      }
+      &:after {
+        border-top-color: white;
+        border-width: 10px;
+        margin-left: -10px;
+      }
     }
   }
 
