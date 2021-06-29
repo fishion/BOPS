@@ -494,6 +494,9 @@ main section.map .popup-container:after {
   border-width: 10px;
   margin-left: -10px;
 }
+main section.map .popup-container img {
+  width: 20rem;
+}
 main section.process {
   padding: var(--section-vpad) 2rem;
   background-color: var(--green);
