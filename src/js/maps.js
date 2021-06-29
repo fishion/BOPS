@@ -49,7 +49,7 @@ const map = new Map({
       style: new Style({
         image: new Icon({
           scale: 0.25,
-          src: '../img/map-marker.png'
+          src: '../img/gfx/map-marker.png'
         })
       }) 
     })

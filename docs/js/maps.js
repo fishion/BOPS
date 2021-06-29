@@ -47185,7 +47185,7 @@ const map = new ol__WEBPACK_IMPORTED_MODULE_3__.default({
       style: new ol_style__WEBPACK_IMPORTED_MODULE_10__.default({
         image: new ol_style__WEBPACK_IMPORTED_MODULE_11__.default({
           scale: 0.25,
-          src: '../img/map-marker.png'
+          src: '../img/gfx/map-marker.png'
         })
       }) 
     })

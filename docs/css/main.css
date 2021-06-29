@@ -322,7 +322,7 @@ footer a {
   padding: 5rem;
   font-size: 2.3rem;
   line-height: 3rem;
-  background-image: url(../img/scribble-grey.png);
+  background-image: url("../img/gfx/scribble-grey.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center center;
@@ -338,7 +338,7 @@ main {
 main section.mission {
   height: auto;
   padding: 27rem 10rem 10rem;
-  background-image: url("../img/header-home.jpg");
+  background-image: url("../img/bg/header-home.jpg");
 }
 main section.mission p {
   padding: 0;
@@ -351,14 +351,14 @@ main section.vision {
   background-color: var(--yellow-bright);
 }
 main section.vision-image::before {
-  background-image: url("../img/vision.jpg");
+  background-image: url("../img/bg/vision.jpg");
 }
 main section.approach {
   background-color: var(--turquoise);
 }
 main section.projects {
   padding-top: 19rem;
-  background-image: url("../img/projects-bench.jpg");
+  background-image: url("../img/bg/projects-bench.jpg");
 }
 main section.projects h1, main section.projects p {
   padding: 0;
@@ -504,7 +504,7 @@ main section.theart {
   color: white;
 }
 main section.theart-image::before {
-  background-image: url("../img/artists.png");
+  background-image: url("../img/bg/artists.png");
 }
 main section.makeithappen {
   padding: var(--section-vpad) 2rem;
@@ -512,11 +512,11 @@ main section.makeithappen {
   color: white;
 }
 main section.makeithappen .scribble-list li {
-  background-image: url(../img/scribble-pink.png);
+  background-image: url("../img/gfx/scribble-pink.png");
 }
 main section.contact.benchproject {
   color: white;
-  background-image: url("../img/orange-door.jpg");
+  background-image: url("../img/bg/orange-door.jpg");
   background-position: top;
 }
 main section.contact.benchproject a {
