@@ -47042,7 +47042,52 @@ module.exports = domAPI;
   \*******************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"view":{"center":[-0.195,50.842487],"zoom":13},"benches":[{"latlong":[-0.2005,50.8515],"name":"madeup"},{"latlong":[-0.201,50.84],"name":"madeup2"}]}');
+module.exports = JSON.parse('{"view":{"center":[-0.195,50.842487],"zoom":14},"benches":[{"latlong":[-0.20278047541605607,50.847548595889684],"name":"Greenleas","img":"greenleas.jpeg"},{"latlong":[-0.20347248529703804,50.84639022127019],"name":"Greenleas","img":"greenleas2.jpeg"},{"latlong":[-0.20525883645328724,50.8463394147029],"name":"Greenleas Park Playground","img":"greenleas-park-play.jpeg"},{"latlong":[-0.20517414634738182,50.84749552072608],"name":"Hangleton Manor Close","img":"hangleton-manor-close.jpeg"},{"latlong":[-0.20318528835126967,50.84354947304678],"name":"Path next to Hove Park School","img":"hove-park-school-side.jpeg"},{"latlong":[-0.19751062712246129,50.84113188811161],"name":"Knoll Park","img":"knoll-park.jpeg"}]}');
+
+/***/ }),
+
+/***/ "./src/js/lib/html.js":
+/*!****************************!*\
+  !*** ./src/js/lib/html.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var ol__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ol */ "./node_modules/ol/Overlay.js");
+
+
+
+
+/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(elID) {
+  // initialise container
+  document.getElementById(elID)
+    .insertAdjacentHTML('afterend','<div class="popup-container" id="popup-container"></div>');
+  this.container = document.getElementById('popup-container');
+
+  // initialise overlay
+  this.overlay = new ol__WEBPACK_IMPORTED_MODULE_0__.default({
+    element: this.container,
+    autoPan: true,
+    autoPanAnimation: { duration: 250 },
+    positioning: 'bottom-center',
+    offset: [0, -20]
+  });
+
+  // methods
+  
+  this.setContent = function(bench) {
+    let html = ""
+    html += `<h2>${bench.name}</h2>`;
+    html += `<img src="../img/benches/${bench.img}">`
+    this.container.innerHTML = html;
+  }
+
+  return this;
+}
+
 
 /***/ })
 
@@ -47122,7 +47167,6 @@ var __webpack_exports__ = {};
   \************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ol_ol_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ol/ol.css */ "./node_modules/ol/ol.css");
-/* harmony import */ var ol__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ol */ "./node_modules/ol/Overlay.js");
 /* harmony import */ var ol__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ol */ "./node_modules/ol/Map.js");
 /* harmony import */ var ol__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ol */ "./node_modules/ol/View.js");
 /* harmony import */ var ol_layer_Tile__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ol/layer/Tile */ "./node_modules/ol/layer/Tile.js");
@@ -47134,6 +47178,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ol_geom_Point__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ol/geom/Point */ "./node_modules/ol/geom/Point.js");
 /* harmony import */ var ol_style__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ol/style */ "./node_modules/ol/style/Style.js");
 /* harmony import */ var ol_style__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ol/style */ "./node_modules/ol/style/Icon.js");
+/* harmony import */ var _lib_html_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./lib/html.js */ "./src/js/lib/html.js");
+
+
 
 
 // Layers are map layers that can contain things
@@ -47144,27 +47191,21 @@ __webpack_require__.r(__webpack_exports__);
 
 // Features - A vector object for geographic features with a geometry and other attribute
 
-// method for getting a projection from latlong
 
-// a geometry point object
 
-// 
 
-// pull benches marker data from json
+
+// import popup overlay html functions
+
+
+// Get benches marker data from json
 const benchesData = __webpack_require__(/*! ../data/benches.json */ "./src/data/benches.json");
 
-// add popupcontainer element to source
-document.getElementById('map').insertAdjacentHTML('afterend','<div class="popup-container" id="popup-container"></div>');
 
-const popupContainer = document.getElementById('popup-container')
-const popupOverlay = new ol__WEBPACK_IMPORTED_MODULE_2__.default({
-  element: popupContainer,
-  autoPan: true,
-  autoPanAnimation: { duration: 250 },
-  positioning: 'bottom-center',
-  offset: [0, -20]
-});
+// initialise Popup overlay
+const popup = new _lib_html_js__WEBPACK_IMPORTED_MODULE_2__.default('map')
 
+// initialise map
 const map = new ol__WEBPACK_IMPORTED_MODULE_3__.default({
   target: 'map',
   layers: [
@@ -47176,9 +47217,7 @@ const map = new ol__WEBPACK_IMPORTED_MODULE_3__.default({
         features: benchesData.benches.map(bench => {
           return new ol_Feature__WEBPACK_IMPORTED_MODULE_8__.default({
             geometry: new ol_geom_Point__WEBPACK_IMPORTED_MODULE_9__.default((0,ol_proj__WEBPACK_IMPORTED_MODULE_1__.fromLonLat)(bench.latlong)),
-            setPopupContent: () => {
-              popupContainer.innerHTML = bench.name;
-            } 
+            setPopupContent: () => { popup.setContent(bench) } 
           })
         })
       }),
@@ -47190,22 +47229,23 @@ const map = new ol__WEBPACK_IMPORTED_MODULE_3__.default({
       }) 
     })
   ],
-  overlays : [popupOverlay],
+  overlays : [popup.overlay],
   view: new ol__WEBPACK_IMPORTED_MODULE_12__.default({
     center: (0,ol_proj__WEBPACK_IMPORTED_MODULE_1__.fromLonLat)(benchesData.view.center),
     zoom: benchesData.view.zoom
   })
 });
 
+// add pointer events
 map.on(['pointermove', 'singleclick'], function (e) {
   const feature = map.getFeaturesAtPixel(e.pixel)[0];
   document.body.style.cursor = feature ? 'pointer' : '';
   if (e.type == 'pointermove') return;
   if (feature) {
     feature.get('setPopupContent')()
-    popupOverlay.setPosition(feature.getGeometry().getCoordinates());
+    popup.overlay.setPosition(feature.getGeometry().getCoordinates());
   } else {
-    popupOverlay.setPosition(undefined);
+    popup.overlay.setPosition(undefined);
   }
 });
 })();
