@@ -365,6 +365,9 @@ main section.projects h1, main section.projects p {
   color: var(--alt-text-colour);
   text-transform: uppercase;
 }
+main section.projects h1 a, main section.projects p a {
+  text-decoration: underline;
+}
 main section.projects .arrow {
   padding-top: 2rem;
   font-size: 3rem;
