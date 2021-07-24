@@ -509,7 +509,7 @@ main section.theart {
   color: white;
 }
 main section.theart-image::before {
-  background-image: url("../img/bg/artists.png");
+  background-image: url("../img/bg/art-building.jpg");
 }
 main section.makeithappen {
   padding: var(--section-vpad) 2rem;
