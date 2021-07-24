@@ -238,7 +238,10 @@ footer {
 .picture-list {
   list-style: none;
   margin: 0;
-  padding: 0 6rem;
+  padding: 0 3rem;
+  @media (min-width: $breakpoint-tablet) {
+    padding: 0 6rem;
+  }
   display: grid;
   grid :
     "image1 text1"
@@ -250,24 +253,35 @@ footer {
     "image4 text4"
     / 1fr 1fr;
   grid-auto-flow: row;
+  gap: 2rem 2rem;
   @media (min-width: $breakpoint-tablet) {
     grid :
       "image1 arrow1 image2 arrow2 image3 arrow3 image4"
       "text1  arrow1 text2  arrow2 text3  arrow3 text4"
       / 5fr 1fr 5fr 1fr 5fr 1fr 5fr;
     grid-auto-flow: column;
+    gap: 2rem 0;
   }
-  gap: 2rem 0;
   img {
     width: 100%;
   }
-  p {
-    padding: 0 1rem;
-    font-size: 1.7rem;
-    text-align: left;
-    font-weight: var(--weight-normal);
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media (min-width: $breakpoint-tablet) {
+      display: block;
+    }
+    p {
+      padding: 0 1rem;
+      font-size: 1.7rem;
+      text-align: left;
+      font-weight: var(--weight-normal);
+    }
   }
+  
   .textimage {
+    min-height: 120px;
     background-color: var(--green-dark);
     text-transform: uppercase;
     font-size: 5rem;
@@ -428,6 +442,10 @@ main {
   }
 
   /* Project page */
+  section.projects.page-header {
+    padding-top: 19rem;
+  }
+
   section.project-intro {
     background-color: var(--blue);
     color: white;
