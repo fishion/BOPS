@@ -190,8 +190,21 @@ main > section {
   text-align: center;
 }
 main > section.just-image {
-  background-attachment: fixed;
+  position: relative;
+  overflow: hidden;
+}
+main > section.just-image::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  background-repeat: no-repeat;
   background-position: center top;
+  background-size: cover;
+  will-change: transform;
+  z-index: -1;
 }
 
 footer {
@@ -354,7 +367,7 @@ main section.mission p {
 main section.vision {
   background-color: var(--yellow-bright);
 }
-main section.vision-image {
+main section.vision-image::before {
   background-image: url("../img/bg/vision.jpg");
 }
 main section.approach {
@@ -515,7 +528,7 @@ main section.theart {
   background-color: var(--grey);
   color: white;
 }
-main section.theart-image {
+main section.theart-image::before {
   background-image: url("../img/bg/art-building.jpg");
 }
 main section.makeithappen {

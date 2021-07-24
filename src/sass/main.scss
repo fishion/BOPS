@@ -196,8 +196,21 @@ main > section {
   text-align: center;
 
   &.just-image {
-    background-attachment: fixed;
-    background-position: center top;
+    position: relative;
+    overflow: hidden;
+    &::before {
+      content: '';
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      position: fixed;
+      background-repeat: no-repeat;
+      background-position: center top;
+      background-size: cover;
+      will-change: transform;
+      z-index: -1;
+    }
   }
 }
 
@@ -347,7 +360,7 @@ main {
     background-color: var(--yellow-bright);
   }
 
-  section.vision-image {
+  section.vision-image::before {
     background-image : url('../img/bg/vision.jpg')
   }
 
@@ -526,7 +539,7 @@ main {
     color: white;
   }
 
-  section.theart-image {
+  section.theart-image::before {
     background-image : url('../img/bg/art-building.jpg')
   }
 
