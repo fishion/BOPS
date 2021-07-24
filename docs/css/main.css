@@ -357,7 +357,6 @@ main section.approach {
   background-color: var(--turquoise);
 }
 main section.projects {
-  padding-top: 19rem;
   background-image: url("../img/bg/projects-bench.jpg");
 }
 main section.projects h1, main section.projects p {
