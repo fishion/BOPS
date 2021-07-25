@@ -7,6 +7,7 @@
 $breakpoint-tablet: 768px; /* phone <-> tablet */
 $breakpoint-small: 1024px; /* tablet <-> small desktop */
 $breakpoint-full: 1280px;  /* small desktop <-> full desktop */
+$breakpoint-large: 2074px;  /* small desktop <-> full desktop */
 
 :root {
   // text sizes
@@ -34,7 +35,10 @@ $breakpoint-full: 1280px;  /* small desktop <-> full desktop */
     --section-vpad: 8rem;
     --section-hpad: 16rem;
   }
-
+  @media (min-width: $breakpoint-large) {
+    --section-vpad: 10rem;
+    --section-hpad: 30rem;
+  }
   
   --h1-text-size: 3.4rem;
   --h1-underpadding: 5.5rem;
@@ -345,7 +349,7 @@ main {
   /* Home page */
   section.mission {
     height: auto;
-    padding: 27rem 10rem 10rem;
+    padding: 27rem var(--section-hpad) 10rem;
     background-image : url('../img/bg/header-home.jpg');
     p {
       padding:0;
