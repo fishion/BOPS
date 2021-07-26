@@ -82,6 +82,10 @@ html, body, div, header, footer, main, section, article, p, h1, h2, h3, h4, h5, 
   color: --base-text-colour;
 }
 
+html, body {
+  background-color: var(--yellow-dull);
+}
+
 h1 {
   padding: 0 0 var(--h1-underpadding);
   font-size: var(--h1-text-size);

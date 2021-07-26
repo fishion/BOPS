@@ -84,6 +84,9 @@ $breakpoint-large: 2074px;  /* small desktop <-> full desktop */
   font-weight: var(--weight-normal);
   color: --base-text-colour;
 }
+html, body {
+  background-color: var(--yellow-dull);
+}
 h1 {
   padding: 0 0 var(--h1-underpadding);
   font-size: var(--h1-text-size);
