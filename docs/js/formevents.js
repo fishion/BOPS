@@ -156,12 +156,11 @@ module.exports = (form, secret) => {
     const recaptchaId = grecaptcha.render(recapture_div,{
       'sitekey': secret,
       'size': 'invisible',
-      'badge' : 'inline', // possible values: bottomright, bottomleft, inline
+      'badge' : 'bottomright',
       'callback' : callback
     });
     return recaptchaId;
   }
-
 
   return {
     addRecaptcha: addRecaptcha

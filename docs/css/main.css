@@ -549,36 +549,36 @@ main section.contact {
 main section.contact form {
   width: 100%;
 }
-main section.contact form div {
+main section.contact form > div {
   position: relative;
   margin: 1rem auto;
   text-align: left;
   font-size: 1.5rem;
 }
 @media (min-width: 768px) {
-  main section.contact form div {
+  main section.contact form > div {
     width: 80%;
     max-width: 600px;
   }
 }
 @media (min-width: 1024px) {
-  main section.contact form div {
+  main section.contact form > div {
     max-width: 800px;
   }
 }
-main section.contact form div p {
+main section.contact form > div p {
   text-align: left;
   padding: 0;
   margin: 0;
   font-size: 1.5rem;
 }
-main section.contact form div p.error {
+main section.contact form > div p.error {
   color: red;
 }
-main section.contact form div p.success {
+main section.contact form > div p.success {
   color: green;
 }
-main section.contact form div input, main section.contact form div textarea {
+main section.contact form > div input, main section.contact form > div textarea {
   position: relative;
   box-sizing: border-box;
   width: 100%;
@@ -587,19 +587,19 @@ main section.contact form div input, main section.contact form div textarea {
   border: 1px solid var(--yellow-dull);
   padding: 2rem 1.5rem 1rem;
 }
-main section.contact form div input:focus, main section.contact form div textarea:focus {
+main section.contact form > div input:focus, main section.contact form > div textarea:focus {
   outline-style: none;
-  border-color: var(--pink-dull);
+  border-color: black;
 }
-main section.contact form div input:focus + label, main section.contact form div input.hascontent + label, main section.contact form div textarea:focus + label, main section.contact form div textarea.hascontent + label {
+main section.contact form > div input:focus + label, main section.contact form > div input.hascontent + label, main section.contact form > div textarea:focus + label, main section.contact form > div textarea.hascontent + label {
   font-size: 1rem;
   top: 4px;
   color: var(--highlight-colour);
 }
-main section.contact form div textarea {
+main section.contact form > div textarea {
   height: 15rem;
 }
-main section.contact form div label {
+main section.contact form > div label {
   position: absolute;
   top: 1rem;
   left: 1.5rem;
@@ -608,18 +608,19 @@ main section.contact form div label {
   pointer-events: none;
   transition: all 0.2s ease-in-out;
 }
-main section.contact form div button {
+main section.contact form > div button {
+  display: block;
+  width: 100%;
   background: none;
   border: 2px solid black;
   padding: 1rem 1.7rem 1rem 2rem;
-  font-size: 0.8rem;
+  font-size: 1.2rem;
   font-weight: 500;
   letter-spacing: 0.3rem;
   text-transform: uppercase;
   cursor: pointer;
 }
-main section.contact form div button:hover {
-  color: white;
-  background-color: black;
+main section.contact form > div button:hover {
+  background-color: var(--yellow-dull);
   transition: all 0.4s ease-in-out;
 }

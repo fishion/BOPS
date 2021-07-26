@@ -556,7 +556,7 @@ main {
     /* Form styles */
     form {
       width: 100%;
-      div {
+      > div {
         position: relative;
         margin: 1rem auto;
         text-align: left;
@@ -590,7 +590,7 @@ main {
           padding: 2rem 1.5rem 1rem;
           &:focus {
             outline-style: none;
-            border-color: var(--pink-dull);
+            border-color: black;
           }
           &:focus + label,
           &.hascontent + label {
@@ -611,17 +611,18 @@ main {
           transition: all .2s ease-in-out;
         }
         button {
+          display: block;
+          width: 100%;
           background: none;
           border: 2px solid black;
           padding: 1rem 1.7rem 1rem 2rem;
-          font-size: .8rem;
+          font-size: 1.2rem;
           font-weight: 500;
           letter-spacing: .3rem;
           text-transform: uppercase;
           cursor: pointer;
           &:hover {
-            color: white;
-            background-color: black;
+            background-color: var(--yellow-dull);
             transition: all .4s ease-in-out;
           }
         }
