@@ -358,6 +358,7 @@ footer a {
 main {
   /* Home page */
   /* Project page */
+  /* Contact page */
 }
 main section.mission {
   height: auto;
@@ -418,32 +419,6 @@ main section.team img {
 }
 main section.team div:nth-of-type(2) {
   background-color: var(--pink-dull);
-}
-main section.contact {
-  background-color: var(--yellow-bright);
-}
-main section.contact h1 {
-  padding: 0;
-}
-main section.contact p {
-  padding: 3rem 0 5rem;
-  font-size: 3rem;
-  text-transform: uppercase;
-}
-main section.contact a {
-  color: black;
-}
-main section.contact a.fab {
-  width: 3rem;
-  margin: 0.2rem;
-  padding: 1rem;
-  border-radius: 3rem;
-  font-size: 3rem;
-  color: var(--yellow-bright);
-  background: white;
-}
-main section.contact a.fab:hover {
-  text-decoration: none;
 }
 main section.projects.page-header {
   padding-top: 19rem;
@@ -546,14 +521,105 @@ main section.makeithappen {
 main section.makeithappen .scribble-list li {
   background-image: url("../img/gfx/scribble-pink.png");
 }
-main section.contact.benchproject {
+main section.contact_head {
+  padding-top: 27rem;
   color: white;
   background-image: url("../img/bg/orange-door.jpg");
   background-position: top;
 }
-main section.contact.benchproject a {
-  color: white;
+main section.contact_head h1 {
+  padding: 0;
 }
-main section.contact.benchproject a.fab {
+main section.contact_head a.fab {
+  width: 3rem;
+  margin: 0.2rem;
+  padding: 1rem;
+  border-radius: 3rem;
+  font-size: 3rem;
   color: var(--yellow-dull);
+  background: white;
+}
+main section.contact_head a.fab:hover {
+  text-decoration: none;
+}
+main section.contact {
+  background-color: var(--yellow-bright);
+  /* Form styles */
+}
+main section.contact form {
+  width: 100%;
+}
+main section.contact form div {
+  position: relative;
+  margin: 1rem auto;
+  text-align: left;
+  font-size: 1.5rem;
+}
+@media (min-width: 768px) {
+  main section.contact form div {
+    width: 80%;
+    max-width: 600px;
+  }
+}
+@media (min-width: 1024px) {
+  main section.contact form div {
+    max-width: 800px;
+  }
+}
+main section.contact form div p {
+  text-align: left;
+  padding: 0;
+  margin: 0;
+  font-size: 1.5rem;
+}
+main section.contact form div p.error {
+  color: red;
+}
+main section.contact form div p.success {
+  color: green;
+}
+main section.contact form div input, main section.contact form div textarea {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  height: 4.5rem;
+  background: var(--yellow-dull);
+  border: 1px solid var(--yellow-dull);
+  padding: 2rem 1.5rem 1rem;
+}
+main section.contact form div input:focus, main section.contact form div textarea:focus {
+  outline-style: none;
+  border-color: var(--pink-dull);
+}
+main section.contact form div input:focus + label, main section.contact form div input.hascontent + label, main section.contact form div textarea:focus + label, main section.contact form div textarea.hascontent + label {
+  font-size: 1rem;
+  top: 4px;
+  color: var(--highlight-colour);
+}
+main section.contact form div textarea {
+  height: 15rem;
+}
+main section.contact form div label {
+  position: absolute;
+  top: 1rem;
+  left: 1.5rem;
+  text-align: left;
+  font-size: 1.5rem;
+  pointer-events: none;
+  transition: all 0.2s ease-in-out;
+}
+main section.contact form div button {
+  background: none;
+  border: 2px solid black;
+  padding: 1rem 1.7rem 1rem 2rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+main section.contact form div button:hover {
+  color: white;
+  background-color: black;
+  transition: all 0.4s ease-in-out;
 }

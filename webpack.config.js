@@ -4,6 +4,7 @@ module.exports = {
   entry: {
     site : './src/js/site.js',
     maps : './src/js/maps.js',
+    formevents : './src/js/formevents.js',
   },
   mode: 'development', devtool: false,
   //mode: 'production',

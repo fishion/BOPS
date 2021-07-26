@@ -1,0 +1,14 @@
+Notes
+-----
+
+Instagram and facebook links not working
+
+Consider Sass compile options and output format, e.g. removing comments and compression
+  - also production version of webpack
+
+Think about SEO and keywords
+
+Major todo
+----------
+
+Nicole mentioned adding a contact us page - Might be easiest if I get something up and working and then you can tell me how to change it to make it look better once it's in place!

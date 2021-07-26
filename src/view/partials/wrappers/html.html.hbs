@@ -43,6 +43,10 @@
   {{#if hasmap }}
     <script defer src="js/maps.js"></script>
   {{/if}}
+  {{#if contactpage }}
+    <script defer src="js/formevents.js"></script>
+    <script defer src="https://www.google.com/recaptcha/api.js?onload=initForm&render=explicit" ></script>
+  {{/if}}
 </head>
 
 <body>
@@ -57,6 +61,7 @@
     <ul>
       <li><a href="/">Home</a></li>
       <li><a href="/projects.html">Projects</a></li>
+      <li><a href="/contact.html">Contact</a></li>
     </ul>
   </nav>
 

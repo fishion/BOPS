@@ -14,7 +14,7 @@ const Handlebars = require('HandlebarsExtended')({
 });
 
 
-// build html files with Handlebard
+// build html files with Handlebars
 Handlebars.buildSite(config)
 
 // build css files from SASS
