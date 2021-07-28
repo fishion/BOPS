@@ -10,10 +10,10 @@
   },
   "site" : {
     "title"       : "BOPS - Brightening Our Public Spaces",
-    "url"         : "",
+    "url"         : "www.bopsart.uk",
     "description" : "Brightening Our Public Spaces",
     "author"      : "Maytree House Studios",
-    "themeColour" : "",
+    "themeColour" : "rgb(33,82,179)",
     "twitterHandle" : ""
   }
 }
