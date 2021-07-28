@@ -18,12 +18,15 @@ const Handlebars = require('HandlebarsExtended')({
 Handlebars.buildSite(config)
 
 // build css files from SASS
-const files = ['main', 'normalize'];
-files.forEach( async file => {
-  const infile = path.resolve(appRoot, 'src', 'sass', `${file}.scss`);
-  const outfile = path.resolve(appRoot, 'docs', 'css', `${file}.css`);
+config.paths.sassFiles && config.paths.sassFiles.forEach( async file => {
+  const infile = path.resolve(appRoot, config.paths.sassInputPath, `${file}.scss`);
+  const outfile = path.resolve(appRoot, config.paths.sassOutputPath, `${file}.css`);
   try {
-    const result = sass.renderSync( { file: infile, outFile: outfile } );
+    const result = sass.renderSync( {
+      file: infile,
+      outFile: outfile,
+      outputStyle: 'compressed'
+    } );
     await fs.writeFile(outfile, result.css)
   }
   catch (e){

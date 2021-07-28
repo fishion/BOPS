@@ -6,8 +6,8 @@ module.exports = {
     maps : './src/js/maps.js',
     formevents : './src/js/formevents.js',
   },
-  mode: 'development', devtool: false,
-  //mode: 'production',
+  //mode: 'development', devtool: false,
+  mode: 'production',
   target: 'node',
   output: {
     filename: '[name].js',
