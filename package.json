@@ -2,7 +2,7 @@
   "name": "bops",
   "version": "1.0.0",
   "description": "Brightening Our Public Spaces",
-  "author": "`Maytree House Studios",
+  "author": "Maytree House Studios",
   "license": "ISC",
   "main": "bin/build.js",
   "repository": {
